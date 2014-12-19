@@ -25,6 +25,7 @@ app.disable('etag');
 
 // Index Route
 app.get('/', routes.index);
+app.get('/api/users', routes.api.getUsers);
 
 // Page Route
 //app.get('/page/:page/:skip', routes.page);

@@ -12,7 +12,7 @@
     "watch-css": "catw public/css/*/*.css -o public/css/bundle.css -v",
     "browserify": "browserify -t reactify --extension='.jsx' app.js | uglifyjs > public/js/bundle.js",
     "build": "npm run browserify ",
-    "start": "npm run c-watch & nodemon server.js",
+    "start": "npm run watch & nodemon server.js",
     "c-watch": "watchify app.coffee app.js -o public/js/bundle.js -dv",
     "c-browserify": "browserify -t coffee-reactify --extension='.cjsx' --extension='.coffee' app.coffee > public/js/bundle.js",
     "c-start": "npm run c-watch & nodemon server.coffee"
@@ -41,6 +41,7 @@
     "express-handlebars": "^1.1.0",
     "mongoose": "^3.8.21",
     "node-jsx": "^0.12.4",
+    "node-tvdb": "^0.4.4",
     "react": "^0.12.2",
     "socket.io": "^1.2.1"
   },
