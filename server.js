@@ -3,8 +3,13 @@ var express = require('express'),
   exphbs = require('express-handlebars'),
   http = require('http'),
   mongoose = require('mongoose'),
+  tvdb	= require('node-tvdb'),
+
   routes = require('./routes'),
-  config = require('./config');
+  config = require('./config'),
+  keys = require('./keys');
+
+  console.log(keys);
 
 // Create an express instance and set a port variable
 var app = express();
@@ -20,15 +25,12 @@ app.disable('etag');
 // Connect to our mongo database
 // mongoose.connect('mongodb://localhost/react-tweets');
 
-// Create a new ntwitter instance
- //var twit = new twitter(config.twitter);
 
 // Index Route
 app.get('/', routes.index);
 app.get('/api/users', routes.api.getUsers);
+app.get('/api/shows', routes.api.getShows);
 
-// Page Route
-//app.get('/page/:page/:skip', routes.page);
 
 // Set /public as our static content dir
 app.use("/", express.static(__dirname + "/public/"));
@@ -41,7 +43,3 @@ var server = http.createServer(app).listen(port, function() {
 // Initialize socket.io
 var io = require('socket.io').listen(server);
 
-// Set a stream listener for tweets matching tracking keywords
-//twit.stream('statuses/filter',{ track: 'scotch_io, #scotchio'}, function(stream){
-//  streamHandler(stream,io);
-//});

@@ -5,4 +5,6 @@ var React = require('react')
 
 	var data = JSON.parse(document.getElementById('initial-state').innerHTML);
 
-	React.renderComponent(<App/>,document.getElementById('react-app'));
+	React.renderComponent(
+		<App state={data}/>,
+		document.getElementById('react-app'));

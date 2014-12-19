@@ -2,6 +2,9 @@ var isProduction = process.env.NODE_ENV === 'production';
 
 var JSX   = require('node-jsx').install(),
 	React = require('react'),
+	tvdb  = require('node-tvdb'),
+
+	keys  = require('./keys'),
 
 	App = require('./components/app'),
 
@@ -19,6 +22,9 @@ var JSX   = require('node-jsx').install(),
 	];
 
 
+	var _tv       = new tvdb(keys.tvdb.api_key);
+
+
 module.exports = {
 	index: function(req, res){
 
@@ -34,6 +40,13 @@ module.exports = {
 	api:{
 		getUsers: function(req, res){
 			res.send(users);
+		},
+		getShows: function(req, res){
+			_tv.getSeries("Breaking Bad", function(error, response) {
+    			// handle error and response
+    			if(error) next(error);
+    			res.send(response);
+			});
 		}
 	}
 }
