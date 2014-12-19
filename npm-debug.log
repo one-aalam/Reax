@@ -1,0 +1,26 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'run', 'c-watch' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.34
+4 verbose run-script [ 'prec-watch', 'c-watch', 'postc-watch' ]
+5 info prec-watch Reax@0.0.1
+6 info c-watch Reax@0.0.1
+7 verbose unsafe-perm in lifecycle true
+8 info Reax@0.0.1 Failed to exec c-watch script
+9 error Reax@0.0.1 c-watch: `watchify app.coffee app.js -o public/js/bundle.js -dv`
+9 error Exit status 8
+10 error Failed at the Reax@0.0.1 c-watch script.
+10 error This is most likely a problem with the Reax package,
+10 error not with npm itself.
+10 error Tell the author that this fails on your system:
+10 error     watchify app.coffee app.js -o public/js/bundle.js -dv
+10 error You can get their info via:
+10 error     npm owner ls Reax
+10 error There is likely additional logging output above.
+11 error System Linux 3.5.0-51-generic
+12 error command "/usr/local/bin/node" "/usr/local/bin/npm" "run" "c-watch"
+13 error cwd /home/testing/Desktop/Code/Reax
+14 error node -v v0.10.34
+15 error npm -v 1.4.28
+16 error code ELIFECYCLE
+17 verbose exit [ 1, true ]

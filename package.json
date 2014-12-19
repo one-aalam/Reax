@@ -1,0 +1,56 @@
+{
+  "name": "Reax",
+  "version": "0.0.1",
+  "description": "A exploration into isomorphic javascript world with React.js",
+  "main": "server.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "watchify app.js -o public/js/bundle.js -dv",
+    "watch-css": "catw public/css/*/*.css -o public/css/bundle.css -v",
+    "browserify": "browserify -t reactify --extension='.jsx' app.js | uglifyjs > public/js/bundle.js",
+    "build": "npm run browserify ",
+    "start": "npm run c-watch & nodemon server.js",
+    "c-watch": "watchify app.coffee app.js -o public/js/bundle.js -dv",
+    "c-browserify": "browserify -t coffee-reactify --extension='.cjsx' --extension='.coffee' app.coffee > public/js/bundle.js",
+    "c-start": "npm run c-watch & nodemon server.coffee"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/one-aalam/Reax.git"
+  },
+  "keywords": [
+    "ReactJS",
+    "reactive",
+    "isomorphic",
+    "ExpressJS",
+    "Browserify"
+  ],
+  "author": "Aftab Alam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/one-aalam/Reax/issues"
+  },
+  "homepage": "https://github.com/one-aalam/Reax",
+  "dependencies": {
+    "coffee-react": "^2.1.2",
+    "coffee-script": "^1.8.0",
+    "express": "^4.10.6",
+    "express-handlebars": "^1.1.0",
+    "mongoose": "^3.8.21",
+    "node-jsx": "^0.12.4",
+    "react": "^0.12.2",
+    "socket.io": "^1.2.1"
+  },
+  "devDependencies": {
+    "browserify": "^7.0.3",
+    "catw": "^0.2.0",
+    "coffee-reactify": "^2.1.0",
+    "nodemon": "^1.2.1",
+    "reactify": "^0.17.1",
+    "uglify-js": "^2.4.16",
+    "watchify": "^2.2.1"
+  }
+}
