@@ -1,16 +1,16 @@
+/** @jsx React.DOM */
 
 var React = require('react');
 
 var App = React.createClass({
 
-	handleClick: function(){
-		return "Clicked!";
-	},
-
+	// Render...
 	render: function() {
 		return (
-			<h1 onClick="{{this.handleClick}}">Hello World!</h1>
-		);
+			<div className="reax-app">
+				Hola
+			</div>
+		)
 	}
 
 });

@@ -3,7 +3,7 @@ var isProduction = process.env.NODE_ENV === 'production';
 var JSX   = require('node-jsx').install(),
 	React = require('react'),
 
-	$Rc = require('./components'),
+	App = require('./components/app'),
 
 
 
@@ -24,8 +24,7 @@ module.exports = {
 
 		// Get the component and render it as a string
 
-		var appHtm = React.renderToString($Rc.App());
-
+		var appHtm = React.renderToString(App(users));
 
 		res.render('home',{
 			markup: appHtm, // react markup
