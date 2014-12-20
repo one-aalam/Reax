@@ -1,6 +1,6 @@
 var isProduction = process.env.NODE_ENV === 'production';
 
-var JSX   = require('node-jsx').install(),
+var JSX   = require('node-jsx').install({extension:'.jsx'}),
 	React = require('react'),
 	tvdb  = require('node-tvdb'),
 

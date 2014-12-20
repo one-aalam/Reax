@@ -8,11 +8,17 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+
     "watch": "watchify app.js -o public/js/bundle.js -dv",
+    "watch-dep": "watchify bowerdep.js -o public/js/vendor.js -dv",
     "watch-css": "catw public/css/*/*.css -o public/css/bundle.css -v",
-    "browserify": "browserify -t reactify --extension='.jsx' app.js | uglifyjs > public/js/bundle.js",
-    "build": "npm run browserify ",
-    "start": "npm run watch & nodemon server.js",
+
+    "build-js-vendor":"browserify -r react -t debowerify bowerdep.js | uglifyjs > public/js/vendor.js",
+    "build-js-main": "browserify  -t reactify --extension='.jsx' -i react app | uglifyjs > public/js/bundle.js",
+
+    "build": "npm run build-js-vendor & npm run build-js-main",
+    "start": "npm run build & npm run watch & nodemon server.js",
+
     "c-watch": "watchify app.coffee app.js -o public/js/bundle.js -dv",
     "c-browserify": "browserify -t coffee-reactify --extension='.cjsx' --extension='.coffee' app.coffee > public/js/bundle.js",
     "c-start": "npm run c-watch & nodemon server.coffee"
@@ -21,7 +27,11 @@
     "type": "git",
     "url": "https://github.com/one-aalam/Reax.git"
   },
-  "browserify": {"transform": ["reactify"]},
+  "browserify": {
+    "transform": [
+      "reactify"
+    ]
+  },
   "keywords": [
     "ReactJS",
     "reactive",
@@ -50,6 +60,7 @@
     "browserify": "^7.0.3",
     "catw": "^0.2.0",
     "coffee-reactify": "^2.1.0",
+    "debowerify": "^1.2.0",
     "nodemon": "^1.2.1",
     "reactify": "^0.17.1",
     "uglify-js": "^2.4.16",
